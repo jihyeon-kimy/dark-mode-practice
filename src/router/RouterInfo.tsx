@@ -18,7 +18,7 @@ interface RouterBase {
 
 export interface onNavRouterElement extends RouterBase {
   label: string;
-  icon: React.SVGProps<SVGSVGElement>;
+  icon: React.ReactNode;
 }
 
 type RouterElement = RouterBase | onNavRouterElement;

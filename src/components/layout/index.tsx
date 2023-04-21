@@ -1,14 +1,22 @@
 import { Outlet } from "react-router-dom";
+import Sidebar from "./Sidebar";
+import styled from "styled-components";
 
 const Layout = () => {
   return (
-    <>
-      <aside>side Navbar 레이아웃</aside>
+    <LayoutContainer>
+      <Sidebar />
       <main>
         <Outlet />
       </main>
-    </>
+    </LayoutContainer>
   );
 };
 
 export default Layout;
+
+const LayoutContainer = styled.div`
+  display: flex;
+  height: 100%;
+  padding: 50px;
+`;

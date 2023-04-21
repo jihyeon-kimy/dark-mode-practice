@@ -18,7 +18,7 @@ interface NavElement {
   id: number;
   label: string;
   path: string;
-  icon: React.SVGProps<SVGSVGElement>;
+  icon: React.ReactNode;
 }
 
 export const navContents: NavElement[] = RouterInfo.reduce((prev, router) => {
