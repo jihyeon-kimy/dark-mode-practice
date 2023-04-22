@@ -1,15 +1,18 @@
 import styled from "styled-components";
 import color from "../../../styles/color";
 import user from "../../../assets/user.png";
+import { isOpenProps } from ".";
 
-const UserInfo = () => {
+const UserInfo: React.FC<isOpenProps> = ({ isOpen }) => {
   return (
     <UserInfoContainer>
       <UserImage src={user} alt="유저 이미지" />
-      <User>
-        <Name>Jihyeon-Kimy</Name>
-        <Position>Frontend Developer</Position>
-      </User>
+      {isOpen && (
+        <User>
+          <Name>Jihyeon-Kimy</Name>
+          <Position>Frontend Developer</Position>
+        </User>
+      )}
     </UserInfoContainer>
   );
 };
@@ -34,15 +37,18 @@ const User = styled.div`
   flex-direction: column;
   margin-left: 15px;
   color: ${color.grayLight};
+  overflow: hidden;
 `;
 
 const Name = styled.span`
   line-height: 25px;
   font-size: 20px;
   font-weight: 700;
+  white-space: nowrap;
 `;
 
 const Position = styled.span`
   font-size: 15px;
   font-weight: 500;
+  white-space: nowrap;
 `;

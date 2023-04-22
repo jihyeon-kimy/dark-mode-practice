@@ -4,13 +4,13 @@ import styled from "styled-components";
 const Toggle = () => {
   const [toggleIsActive, setToggleIsActive] = useState(false);
 
-  const onToggle = () => {
-    setToggleIsActive(!toggleIsActive);
+  const toggleHandler = () => {
+    setToggleIsActive((prev) => !prev);
   };
 
   return (
     <ToggleContainer>
-      <SwitchInput type="checkbox" checked={toggleIsActive} onChange={onToggle} />
+      <SwitchInput type="checkbox" checked={toggleIsActive} onChange={toggleHandler} />
       <Switch isActive={toggleIsActive} />
     </ToggleContainer>
   );

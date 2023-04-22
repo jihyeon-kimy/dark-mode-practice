@@ -6,9 +6,9 @@ const Layout = () => {
   return (
     <LayoutContainer>
       <Sidebar />
-      <main>
+      <Main>
         <Outlet />
-      </main>
+      </Main>
     </LayoutContainer>
   );
 };
@@ -19,4 +19,11 @@ const LayoutContainer = styled.div`
   display: flex;
   height: 100%;
   padding: 50px;
+`;
+
+const Main = styled.main`
+  width: 100%;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
 `;

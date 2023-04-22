@@ -1,9 +1,10 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { navContents } from "../../../router";
 import SidebarItem from "./SidebarItem";
 import { useNavigate } from "react-router-dom";
+import { isOpenProps } from ".";
 
-const Nav = () => {
+const Nav: React.FC<isOpenProps> = ({ isOpen }) => {
   const navigate = useNavigate();
 
   const navMenuClickHandler = (path: string) => {
@@ -18,7 +19,7 @@ const Nav = () => {
           onClick={() => {
             navMenuClickHandler(element.path);
           }}>
-          <SidebarItem icon={element.icon} title={element.label} />
+          <SidebarItem icon={element.icon} title={element.label} isOpen={isOpen} />
         </li>
       ))}
     </NavContainer>

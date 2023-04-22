@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import color from "../../../styles/color";
 import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
+import { isOpenProps } from ".";
 
-const SearchBox = () => {
+const SearchBox: React.FC<isOpenProps> = ({ isOpen }) => {
   return (
     <SearchBoxCotainer>
       <SearchIcon />
-      <Input placeholder="Search..." id="search" />
+      {isOpen && <Input placeholder="Search..." id="search" />}
     </SearchBoxCotainer>
   );
 };

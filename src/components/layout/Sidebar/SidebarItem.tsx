@@ -1,18 +1,19 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import color from "../../../styles/color";
 
 interface SidebarItemProps {
   icon: React.ReactNode;
   title: string;
+  isOpen: boolean;
   toggle?: React.ReactNode;
 }
 
-const SidebarItem: React.FC<SidebarItemProps> = ({ icon, title, toggle }) => {
+const SidebarItem: React.FC<SidebarItemProps> = ({ icon, title, isOpen, toggle }) => {
   return (
     <SidebarItemContainer>
       {icon}
-      <ItemTitle>{title}</ItemTitle>
-      {toggle}
+      {isOpen && <ItemTitle>{title}</ItemTitle>}
+      {isOpen && toggle}
     </SidebarItemContainer>
   );
 };
@@ -22,7 +23,6 @@ export default SidebarItem;
 const SidebarItemContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
   margin: 5px 0;
   border-radius: 10px;
   cursor: pointer;
@@ -33,6 +33,7 @@ const SidebarItemContainer = styled.div`
   }
 
   svg {
+    flex-shrink: 0;
     width: 50px;
     height: 50px;
     padding: 10px;
@@ -45,5 +46,7 @@ const ItemTitle = styled.span`
   margin-left: 10px;
   font-size: 18px;
   font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
   color: ${color.gray};
 `;
