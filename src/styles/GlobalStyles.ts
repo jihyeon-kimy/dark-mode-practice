@@ -12,6 +12,8 @@ const GlobalStyles = createGlobalStyle`
   html,body{
     font-family: 'Roboto', sans-serif;
     height: 100%;
+    background-color: ${({ theme }) => theme.background};
+    transition: background-color 0.3s linear;
   }
 
   #root {

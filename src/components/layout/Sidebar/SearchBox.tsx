@@ -20,6 +20,7 @@ const SearchBoxCotainer = styled.form`
   margin: 0 20px;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.hover};
+  transition: background-color 0.3s linear;
 
   svg {
     flex-shrink: 0;

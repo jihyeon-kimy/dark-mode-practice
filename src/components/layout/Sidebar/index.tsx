@@ -46,7 +46,7 @@ const SidebarToggle = styled.div<{ isOpen: boolean }>`
     height: 30px;
     fill: ${color.white};
     transform: ${({ isOpen }) => (isOpen ? "rotate(180deg)" : "rotate(0deg)")};
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s linear;
   }
 `;
 
@@ -59,5 +59,5 @@ const SidebarConatiner = styled.aside<{ isOpen: boolean }>`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 20px;
   background-color: ${({ theme }) => theme.background};
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s linear;
 `;

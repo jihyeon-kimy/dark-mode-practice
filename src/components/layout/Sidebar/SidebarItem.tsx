@@ -1,4 +1,4 @@
-import styled, { css, keyframes } from "styled-components";
+import styled from "styled-components";
 import color from "../../../styles/color";
 
 interface SidebarItemProps {
@@ -26,7 +26,7 @@ const SidebarItemContainer = styled.div`
   margin: 5px 0;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.3s linear;
 
   &:hover {
     background-color: ${({ theme }) => theme.hover};

@@ -1,4 +1,6 @@
-export const darkTheme = {
+import { DefaultTheme } from "styled-components";
+
+export const darkTheme: DefaultTheme = {
   hover: "#3A3B3D",
   active: "#3A3B3D",
   border: "#595959",
@@ -8,7 +10,7 @@ export const darkTheme = {
   toggleBackground: "#FFFFFF",
 };
 
-export const lightTheme = {
+export const lightTheme: DefaultTheme = {
   hover: "#F6F4FF",
   active: "#44B1FF",
   border: "#D9D9D9",

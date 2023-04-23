@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-const Toggle = () => {
-  const [toggleIsActive, setToggleIsActive] = useState(false);
+interface toggleProps {
+  isActive: boolean;
+  onChange: () => void;
+}
 
-  const toggleHandler = () => {
-    setToggleIsActive((prev) => !prev);
-  };
-
+const Toggle: React.FC<toggleProps> = ({ isActive, onChange }) => {
   return (
     <ToggleContainer>
-      <SwitchInput type="checkbox" checked={toggleIsActive} onChange={toggleHandler} />
-      <Switch isActive={toggleIsActive} />
+      <SwitchInput type="checkbox" checked={isActive} onChange={onChange} />
+      <Switch isActive={isActive} />
     </ToggleContainer>
   );
 };
@@ -39,5 +38,5 @@ const Switch = styled.span<{ isActive: boolean }>`
   border-radius: 15px;
   background-color: ${({ theme }) => theme.toggle};
   transform: translateX(${({ isActive }) => (isActive ? "14px" : "")});
-  transition: transform 0.25s ease-in-out;
+  transition: transform 0.3s linear;
 `;

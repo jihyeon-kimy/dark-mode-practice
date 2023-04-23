@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { navContents } from "../../../router";
 import SidebarItem from "./SidebarItem";
 import { useNavigate } from "react-router-dom";
