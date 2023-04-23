@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import resetStyles from "styled-reset";
 import color from "./color";
 
 const GlobalStyles = createGlobalStyle` 
-  ${reset} 
+  ${resetStyles} 
 
   *{
     box-sizing: border-box;
@@ -19,7 +19,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   #root {
-  height: 100%;
+    height: 100%;
   }
 
   input{

@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import UserInfo from "./UserInfo";
-import SearchBox from "./SearchBox";
-import Nav from "./Nav";
-import Bottom from "./Bottom";
-import { ReactComponent as ChevronIcon } from "../../../assets/chevron_right.svg";
-import color from "../../../styles/color";
 import { useContext } from "react";
+import styled from "styled-components";
+import { ReactComponent as ChevronIcon } from "../../../assets/chevron_right.svg";
 import SidebarProvider, { SidebarContext } from "../../../store/SidebarProvider";
+import color from "../../../styles/color";
+import Bottom from "./Bottom";
+import Nav from "./Nav";
+import SearchBox from "./SearchBox";
+import UserInfo from "./UserInfo";
 
 const SidebarContents = () => {
   const { isOpen, toggleSidebarHandler } = useContext(SidebarContext);

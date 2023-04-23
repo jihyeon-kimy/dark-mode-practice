@@ -1,14 +1,14 @@
-import { ReactComponent as HomeIcon } from "../assets/home.svg";
-import { ReactComponent as EventIcon } from "../assets/event.svg";
 import { ReactComponent as AnalyticsIcon } from "../assets/analytics.svg";
-import { ReactComponent as FavoriteIcon } from "../assets/favorite.svg";
+import { ReactComponent as EventIcon } from "../assets/event.svg";
 import { ReactComponent as FaceIcon } from "../assets/face.svg";
-import Dashboard from "../pages/Dashboard";
-import Schedule from "../pages/Schedule";
+import { ReactComponent as FavoriteIcon } from "../assets/favorite.svg";
+import { ReactComponent as HomeIcon } from "../assets/home.svg";
 import Analytics from "../pages/Analytics";
+import Dashboard from "../pages/Dashboard";
 import Likes from "../pages/Likes";
-import User from "../pages/User";
 import Main from "../pages/Main";
+import Schedule from "../pages/Schedule";
+import User from "../pages/User";
 
 interface RouterBase {
   id: number;

@@ -1,7 +1,6 @@
-import React from "react";
-import { useState } from "react";
-import { darkTheme, lightTheme } from "../styles/theme";
+import React, { useState } from "react";
 import { ThemeProvider as StyledProvider } from "styled-components";
+import { darkTheme, lightTheme } from "../styles/theme";
 
 type ThemeContextType = {
   darkmode: boolean;
@@ -32,7 +31,7 @@ const ThemeProvider: React.FC<themeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={themeContext}>
-      <StyledProvider theme={theme}>{children} </StyledProvider>
+      <StyledProvider theme={theme}>{children}</StyledProvider>
     </ThemeContext.Provider>
   );
 };

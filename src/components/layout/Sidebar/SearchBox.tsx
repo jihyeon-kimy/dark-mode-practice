@@ -1,19 +1,20 @@
-import styled from "styled-components";
-import color from "../../../styles/color";
-import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 import { useContext } from "react";
+import styled from "styled-components";
+import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 import { SidebarContext } from "../../../store/SidebarProvider";
+import color from "../../../styles/color";
 
 const SearchBox = () => {
   const { isOpen, openSidebarHandler } = useContext(SidebarContext);
 
-  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
 
     if (!isOpen) return openSidebarHandler();
-    const formData = new FormData(e.currentTarget);
+    const formData = new FormData(event.currentTarget);
     console.log(formData.get("search"));
   };
+
   return (
     <SearchBoxCotainer onSubmit={submitHandler}>
       <SearchButton type="submit">

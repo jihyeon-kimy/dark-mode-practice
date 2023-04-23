@@ -1,9 +1,9 @@
+import { useContext, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { navContents } from "../../../router";
-import SidebarItem from "./SidebarItem";
-import { NavLink } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
 import { SidebarContext } from "../../../store/SidebarProvider";
+import SidebarItem from "./SidebarItem";
 
 const Nav = () => {
   const { isOpen } = useContext(SidebarContext);

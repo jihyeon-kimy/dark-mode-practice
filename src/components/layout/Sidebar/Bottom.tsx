@@ -1,12 +1,12 @@
-import SidebarItem from "./SidebarItem";
-import { ReactComponent as LogoutIcon } from "../../../assets/logout.svg";
-import { ReactComponent as DarkModeIcon } from "../../../assets/dark_mode.svg";
-import Toggle from "../../common/Toggle";
-import color from "../../../styles/color";
-import styled from "styled-components";
 import { useContext } from "react";
-import { ThemeContext } from "../../../store/ThemeProvider";
+import styled from "styled-components";
+import { ReactComponent as DarkModeIcon } from "../../../assets/dark_mode.svg";
+import { ReactComponent as LogoutIcon } from "../../../assets/logout.svg";
 import { SidebarContext } from "../../../store/SidebarProvider";
+import { ThemeContext } from "../../../store/ThemeProvider";
+import color from "../../../styles/color";
+import Toggle from "../../common/Toggle";
+import SidebarItem from "./SidebarItem";
 
 const Bottom = () => {
   const { darkmode, toggleThemeHandler } = useContext(ThemeContext);

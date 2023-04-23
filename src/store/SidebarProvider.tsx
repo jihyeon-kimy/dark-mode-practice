@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 interface sidebarProviderProps {
   children: React.ReactNode;
@@ -27,9 +27,7 @@ const SidebarProvider: React.FC<sidebarProviderProps> = ({ children }) => {
     openSidebarHandler,
   };
 
-  return (
-    <SidebarContext.Provider value={sidebarContext}>{children}</SidebarContext.Provider>
-  );
+  return <SidebarContext.Provider value={sidebarContext}>{children}</SidebarContext.Provider>;
 };
 
 export default SidebarProvider;

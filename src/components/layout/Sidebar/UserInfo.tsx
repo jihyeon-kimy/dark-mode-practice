@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import color from "../../../styles/color";
-import user from "../../../assets/user.png";
 import { useContext } from "react";
+import styled from "styled-components";
+import user from "../../../assets/user.png";
 import { SidebarContext } from "../../../store/SidebarProvider";
+import color from "../../../styles/color";
 
 const UserInfo = () => {
   const { isOpen } = useContext(SidebarContext);
