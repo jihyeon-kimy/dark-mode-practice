@@ -4,12 +4,13 @@ import { ReactComponent as DarkModeIcon } from "../../../assets/dark_mode.svg";
 import Toggle from "../../common/Toggle";
 import color from "../../../styles/color";
 import styled from "styled-components";
-import { isOpenProps } from ".";
 import { useContext } from "react";
-import { ThemeContext } from "../../../store/themeProvider";
+import { ThemeContext } from "../../../store/ThemeProvider";
+import { SidebarContext } from "../../../store/SidebarProvider";
 
-const Bottom: React.FC<isOpenProps> = ({ isOpen }) => {
-  const themeCtx = useContext(ThemeContext);
+const Bottom = () => {
+  const { darkmode, toggleThemeHandler } = useContext(ThemeContext);
+  const { isOpen } = useContext(SidebarContext);
 
   return (
     <BottomContainer>
@@ -18,9 +19,7 @@ const Bottom: React.FC<isOpenProps> = ({ isOpen }) => {
         background={true}
         icon={<DarkModeIcon />}
         title="Dark Mode"
-        toggle={
-          <Toggle isActive={themeCtx.darkmode} onChange={themeCtx.toggleThemeHandler} />
-        }
+        toggle={<Toggle isActive={darkmode} onChange={toggleThemeHandler} />}
         isOpen={isOpen}
       />
     </BottomContainer>

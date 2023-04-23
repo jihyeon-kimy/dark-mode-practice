@@ -2,10 +2,11 @@ import styled from "styled-components";
 import { navContents } from "../../../router";
 import SidebarItem from "./SidebarItem";
 import { NavLink } from "react-router-dom";
-import { isOpenProps } from ".";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { SidebarContext } from "../../../store/SidebarProvider";
 
-const Nav: React.FC<isOpenProps> = ({ isOpen }) => {
+const Nav = () => {
+  const { isOpen } = useContext(SidebarContext);
   const [selectedMenuIdx, setSelectedMenuIdx] = useState<number | undefined>();
 
   useEffect(() => {

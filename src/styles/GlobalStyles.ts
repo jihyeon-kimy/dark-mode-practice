@@ -8,13 +8,13 @@ const GlobalStyles = createGlobalStyle`
   *{
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
+    color:${color.gray};
   }
 
   html,body{
     height: 100%;
     font-family: 'Roboto', sans-serif;
     background-color: ${({ theme }) => theme.background};
-    color:${color.gray};
     transition: background-color 0.3s linear;
   }
 

@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import color from "../../../styles/color";
 import user from "../../../assets/user.png";
-import { isOpenProps } from ".";
+import { useContext } from "react";
+import { SidebarContext } from "../../../store/SidebarProvider";
 
-const UserInfo: React.FC<isOpenProps> = ({ isOpen }) => {
+const UserInfo = () => {
+  const { isOpen } = useContext(SidebarContext);
+
   return (
     <UserInfoContainer>
       <UserImage src={user} alt="유저 이미지" />

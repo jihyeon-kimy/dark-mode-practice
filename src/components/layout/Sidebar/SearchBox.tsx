@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import color from "../../../styles/color";
 import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
-import { isOpenProps } from ".";
+import { useContext } from "react";
+import { SidebarContext } from "../../../store/SidebarProvider";
 
-interface searchBoxProps extends isOpenProps {
-  openSidebarHandler: () => void;
-}
+const SearchBox = () => {
+  const { isOpen, openSidebarHandler } = useContext(SidebarContext);
 
-const SearchBox: React.FC<searchBoxProps> = ({ isOpen, openSidebarHandler }) => {
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -16,7 +15,7 @@ const SearchBox: React.FC<searchBoxProps> = ({ isOpen, openSidebarHandler }) => 
     console.log(formData.get("search"));
   };
   return (
-    <SearchBoxCotainer  onSubmit={submitHandler}>
+    <SearchBoxCotainer onSubmit={submitHandler}>
       <SearchButton type="submit">
         <SearchIcon />
       </SearchButton>
