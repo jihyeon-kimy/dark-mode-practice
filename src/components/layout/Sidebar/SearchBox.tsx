@@ -3,11 +3,24 @@ import color from "../../../styles/color";
 import { ReactComponent as SearchIcon } from "../../../assets/search.svg";
 import { isOpenProps } from ".";
 
-const SearchBox: React.FC<isOpenProps> = ({ isOpen }) => {
+interface searchBoxProps extends isOpenProps {
+  openSidebarHandler: () => void;
+}
+
+const SearchBox: React.FC<searchBoxProps> = ({ isOpen, openSidebarHandler }) => {
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!isOpen) return openSidebarHandler();
+    const formData = new FormData(e.currentTarget);
+    console.log(formData.get("search"));
+  };
   return (
-    <SearchBoxCotainer>
-      <SearchIcon />
-      {isOpen && <Input placeholder="Search..." id="search" />}
+    <SearchBoxCotainer onSubmit={submitHandler}>
+      <SearchButton type="submit">
+        <SearchIcon />
+      </SearchButton>
+      {isOpen && <Input placeholder="Search..." name="search" />}
     </SearchBoxCotainer>
   );
 };
@@ -21,6 +34,10 @@ const SearchBoxCotainer = styled.form`
   border-radius: 10px;
   background-color: ${({ theme }) => theme.hover};
   transition: background-color 0.3s linear;
+`;
+
+const SearchButton = styled.button`
+  border-radius: 10px;
 
   svg {
     flex-shrink: 0;

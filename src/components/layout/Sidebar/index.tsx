@@ -16,6 +16,9 @@ const Sidebar = () => {
   const toggleSidebarHandler = () => {
     setOpneSidebar((prev) => !prev);
   };
+  const openSidebarHandler = () => {
+    setOpneSidebar(true);
+  };
 
   return (
     <SidebarConatiner isOpen={openSidebar}>
@@ -23,7 +26,7 @@ const Sidebar = () => {
         <ChevronIcon />
       </SidebarToggle>
       <UserInfo isOpen={openSidebar} />
-      <SearchBox isOpen={openSidebar} />
+      <SearchBox isOpen={openSidebar} openSidebarHandler={openSidebarHandler} />
       <Nav isOpen={openSidebar} />
       <Bottom isOpen={openSidebar} />
     </SidebarConatiner>

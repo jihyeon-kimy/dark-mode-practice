@@ -25,6 +25,16 @@ const GlobalStyles = createGlobalStyle`
     background-color: transparent;
     &:focus{outline:none}
   }
+
+  button{
+    background: inherit; 
+    border:none; 
+    box-shadow:none;
+    border:none;
+    padding:0; 
+    overflow:visible; 
+    cursor:pointer
+  }
 `;
 
 export default GlobalStyles;
