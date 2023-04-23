@@ -21,7 +21,6 @@ const ToggleContainer = styled.label`
   width: 34px;
   height: 20px;
   padding: 3px;
-  margin-right: 10px;
   border-radius: 13px;
   cursor: pointer;
   background-color: ${({ theme }) => theme.toggleBackground};

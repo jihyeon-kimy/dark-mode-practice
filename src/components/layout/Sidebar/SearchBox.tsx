@@ -16,7 +16,7 @@ const SearchBox: React.FC<searchBoxProps> = ({ isOpen, openSidebarHandler }) => 
     console.log(formData.get("search"));
   };
   return (
-    <SearchBoxCotainer onSubmit={submitHandler}>
+    <SearchBoxCotainer  onSubmit={submitHandler}>
       <SearchButton type="submit">
         <SearchIcon />
       </SearchButton>

@@ -15,6 +15,7 @@ const Bottom: React.FC<isOpenProps> = ({ isOpen }) => {
     <BottomContainer>
       <SidebarItem icon={<LogoutIcon />} title="Logout" isOpen={isOpen} />
       <SidebarItem
+        background={true}
         icon={<DarkModeIcon />}
         title="Dark Mode"
         toggle={
