@@ -1,18 +1,20 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
+import color from "./color";
 
 const GlobalStyles = createGlobalStyle` 
   ${reset} 
 
   *{
-    font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
   }
 
   html,body{
-    font-family: 'Roboto', sans-serif;
     height: 100%;
+    font-family: 'Roboto', sans-serif;
     background-color: ${({ theme }) => theme.background};
+    color:${color.gray};
     transition: background-color 0.3s linear;
   }
 
@@ -23,6 +25,7 @@ const GlobalStyles = createGlobalStyle`
   input{
     border: none;
     background-color: transparent;
+
     &:focus{outline:none}
   }
 
@@ -34,6 +37,10 @@ const GlobalStyles = createGlobalStyle`
     padding:0; 
     overflow:visible; 
     cursor:pointer
+  }
+
+  a{
+    text-decoration: none;
   }
 `;
 

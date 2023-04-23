@@ -7,6 +7,7 @@ interface SidebarItemProps {
   isOpen: boolean;
   toggle?: React.ReactNode;
   background?: boolean | undefined;
+  className?: string;
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = ({
@@ -15,9 +16,10 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
   isOpen,
   toggle,
   background,
+  className,
 }) => {
   return (
-    <SidebarItemContainer background={background}>
+    <SidebarItemContainer background={background} className={className}>
       {toggle && !isOpen ? "" : icon}
       {isOpen && <ItemTitle>{title}</ItemTitle>}
       {toggle && <ToggleWrapper>{toggle}</ToggleWrapper>}
@@ -30,7 +32,7 @@ export default SidebarItem;
 const SidebarItemContainer = styled.div<{ background?: boolean }>`
   display: flex;
   align-items: center;
-  margin: 5px 0;
+  margin-bottom: 5px;
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s linear;
@@ -51,6 +53,17 @@ const SidebarItemContainer = styled.div<{ background?: boolean }>`
     height: 50px;
     padding: 10px;
     fill: ${color.gray};
+    z-index: 10;
+    transition: fill 0.4s ease-in-out;
+  }
+
+  &.active {
+    svg {
+      fill: ${color.white};
+    }
+    span {
+      color: ${color.white};
+    }
   }
 `;
 
@@ -62,6 +75,8 @@ const ItemTitle = styled.span`
   white-space: nowrap;
   overflow: hidden;
   color: ${color.gray};
+  z-index: 10;
+  transition: color 0.4s ease-in-out;
 `;
 
 const ToggleWrapper = styled.div`

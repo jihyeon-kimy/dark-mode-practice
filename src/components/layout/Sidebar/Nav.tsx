@@ -1,26 +1,41 @@
 import styled from "styled-components";
 import { navContents } from "../../../router";
 import SidebarItem from "./SidebarItem";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { isOpenProps } from ".";
+import { useEffect, useState } from "react";
 
 const Nav: React.FC<isOpenProps> = ({ isOpen }) => {
-  const navigate = useNavigate();
+  const [selectedMenuIdx, setSelectedMenuIdx] = useState<number | undefined>();
 
-  const navMenuClickHandler = (path: string) => {
-    navigate(path);
-  };
+  useEffect(() => {
+    if (!window.location.pathname) return;
+
+    const currentPathIdx = navContents.find(
+      (element) => window.location.pathname === element.path
+    )?.id;
+    setSelectedMenuIdx(currentPathIdx);
+  }, []);
 
   return (
     <NavContainer>
+      {selectedMenuIdx && <SelectedMenu idx={selectedMenuIdx} />}
       {navContents.map((element) => (
-        <li
+        <NavLink
           key={element.id}
+          to={element.path}
           onClick={() => {
-            navMenuClickHandler(element.path);
+            setSelectedMenuIdx(element.id);
           }}>
-          <SidebarItem icon={element.icon} title={element.label} isOpen={isOpen} />
-        </li>
+          {({ isActive }) => (
+            <SidebarItem
+              icon={element.icon}
+              title={element.label}
+              isOpen={isOpen}
+              className={isActive ? "active" : ""}
+            />
+          )}
+        </NavLink>
       ))}
     </NavContainer>
   );
@@ -29,6 +44,19 @@ const Nav: React.FC<isOpenProps> = ({ isOpen }) => {
 export default Nav;
 
 const NavContainer = styled.ul`
+  position: relative;
   flex-grow: 1;
   padding: 20px;
+`;
+
+const SelectedMenu = styled.span<{ idx: number }>`
+  display: inline-block;
+  position: absolute;
+  top: ${({ idx }) => `${20 + (idx - 1) * 55}px`};
+  z-index: 5;
+  height: 50px;
+  width: calc(100% - 40px);
+  border-radius: 10px;
+  background-color: ${({ theme }) => theme.active};
+  transition: top 0.3s ease-in-out, background-color 0.3s linear;
 `;

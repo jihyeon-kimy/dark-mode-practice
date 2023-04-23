@@ -13,9 +13,11 @@ export interface isOpenProps {
 
 const Sidebar = () => {
   const [openSidebar, setOpneSidebar] = useState(true);
+
   const toggleSidebarHandler = () => {
     setOpneSidebar((prev) => !prev);
   };
+
   const openSidebarHandler = () => {
     setOpneSidebar(true);
   };
